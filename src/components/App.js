@@ -17,7 +17,7 @@ class App extends React.Component {
       selectedTap: null,
       masterTapMenu: [
         {
-          id: v4(),
+          id: "b7c6018c-fff0-44b7-9df3-49bd798d33b2",
           img: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTr4-0GqixCFrqtZ8bEgiwkRdGYXcyNlD0TpX3PMwzJx4b9r8SS&usqp=CAU",
           name: "MIRROR POND PALE ALE",
           brand: "DESCHUTES",
@@ -26,7 +26,7 @@ class App extends React.Component {
           pints: 124
         },
         {
-          id: v4(),
+          id: "8ade42f5-28c7-43b8-a286-f062ecc5b541",
           img: "https://pbs.twimg.com/profile_images/1118565165480337408/hTb40HYf.png",
           name: "CZECH-STYLE PILSNER",
           brand: "BUOY",
@@ -35,7 +35,7 @@ class App extends React.Component {
           pints: 124
         },
         {
-          id: v4(),
+          id: "891cb0aa-84e5-49a4-89db-84f4be7b873e",
           img: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRAk98i_WUT93Ab5sOy0uCIjIkA4rQUYVRM_P_nyifr3P34a5la&usqp=CAU",
           name: "Barrel Aged IPA",
           brand: "GIGANTIC",
@@ -44,7 +44,7 @@ class App extends React.Component {
           pints: 124
         },
         {
-          id: v4(),
+          id: "1e33d1d1-0f92-4eac-b29f-cad63625b710",
           img: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcT9z4LT7645EIuXtmxydA-Axpv0eh9m8CLr0HVOAi6_AuRh1zdq&usqp=CAU",
           name: "Mosaic Hopped CREAM ALE",
           brand: "BRIDGEPORT",
@@ -72,14 +72,6 @@ class App extends React.Component {
     });
   }  
 
-  // handleAddTapClick = () => {
-  //   this.setState(prevState => ({
-  //     addingTab: !prevState.addingTab,
-  //     showTabMenu: false, 
-  //     selectedTap: null
-  //   }));
-  // }
-
   handleAddNewTap = (newTap) => {
     const newTapMenu = this.state.masterTapMenu.concat(newTap);
     this.setState({masterTapMenu: newTapMenu,
@@ -96,6 +88,15 @@ class App extends React.Component {
     });
   }
 
+  handleSellPint = (id) => {
+    const selectedTap = this.state.masterTapMenu.filter(tab => tab.id === id)[0];
+    this.setState({selectedTap: selectedTap})
+    console.log(selectedTap.id);
+    selectedTap.pints --;
+    const newTapMenu = this.state.masterTapMenu.filter(tap => tap.id !== id).concat(selectedTap);
+    this.setState({masterTapMenu: newTapMenu,  showTabMenu: true, selectedTap: null});
+   
+  }
 
 
   setVisibility = () => {
@@ -109,7 +110,7 @@ class App extends React.Component {
       }
     } else if (this.state.showTabMenu) {
       return {
-        body: <TapMenu tapMenu={this.state.masterTapMenu} onTabClick={this.handleTapSelection} />
+        body: <TapMenu tapMenu={this.state.masterTapMenu} onTabClick={this.handleTapSelection} onSellPint={this.handleSellPint} />
       }
     }
   }
@@ -117,7 +118,6 @@ class App extends React.Component {
   render() {
     console.log(this.state);
     let currentlyVisibleState = this.setVisibility();
-    console.log(currentlyVisibleState.body);
     return (
       <>
         <Header onClickToHome={this.handleToHome} onClickAddNewTap={this.handleAddTapClick} />

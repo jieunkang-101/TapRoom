@@ -6,26 +6,26 @@ function ReusableForm(props) {
     <><div className="form-card">
         <form onSubmit={props.formSubmissionHandler}>
           <div className="form-group">
-            <label for="brand">Brand: </label>
-            <input type='text' name='brand' class="form-control" />
+            <label htmlFor="brand">Brand: </label>
+            <input type='text' name='brand' className="form-control" />
           </div>   
           <div className="form-group">
-            <label for="name">Name: </label>
-            <input type='text' name='name' class="form-control" />
+            <label htmlFor="name">Name: </label>
+            <input type='text' name='name' className="form-control" />
           </div>
           <div className="form-group">
-            <label for="price">Price: </label>
-            <input type='text' name='price' class="form-control" />
+            <label htmlFor="price">Price: </label>
+            <input type='text' name='price' className="form-control" />
           </div>
           <div className="form-group">
-            <label for="abv">ABV: </label>
-            <input type='text' name='abv' class="form-control" />
+            <label htmlFor="abv">ABV: </label>
+            <input type='text' name='abv' className="form-control" />
           </div>
           <div className="form-group">
-            <label for="img">Image URL: </label>
-            <input type='text' name='img' class="form-control" />
+            <label htmlFor="img">Image URL: </label>
+            <input type='text' name='img' className="form-control" />
           </div>
-          <button type='submit' class="btn btn-outline-info">{props.buttonText}</button>
+          <button type='submit' className="btn btn-outline-info">{props.buttonText}</button>
         </form>
       </div>
     </>

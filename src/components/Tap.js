@@ -2,18 +2,12 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Tap(props) {
-  var cardStyle = {
-    marginRight: 'auto',
-    marginLeft: 'auto',
-    height: '380px',
-    width: '280px'
-  };
 
   return (
     <div className= "col s12 m6 l4">
-      <div style={cardStyle} className="card">
+      <div className="card">
         <div className="card-image">
-          <img src={props.img} height="180"></img>
+          <img src={props.img} height="180" alt="Brand"></img>
         </div>
         <div className="card-content">
           <ul>

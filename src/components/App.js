@@ -12,6 +12,7 @@ class App extends React.Component {
     super(props);
     this.state = {
       showTabMenu: true,
+      addingTab: false,
       masterTapMenu: [
         {
           id: v4(),
@@ -53,16 +54,42 @@ class App extends React.Component {
     }
   }      
 
+  handleAddTapClick = () => {
+    this.setState(prevState => ({
+      addingTab: !prevState.addingTab
+    }));
+  }
+
+  // handleShowNewTapForm = () => {
+  //   this.setState(prevState => ({
+  //     showNewTapForm: !prevState.showAddTapForm
+  //   }));
+  // }
+
+  handleAddNewTap = (newTap) => {
+    const newTapMenu = this.state.masterTapMenu.concat(newTap);
+    this.setState({masterTapMenu: newTapMenu});
+    this.setState({addingTab: false});
+  }
+
+
+
+
 
   setVisibility = () => {
-    if (this.state.showTabMenu) {
+    if (this.state.addingTab) {
       return {
-        body: <TapMenu tapMenu={this.state.masterTapMenu} />
+        body: <NewTapForm onNewTapCreation={this.handleAddNewTap} />
+      }
+    } else if (this.state.showTabMenu) {
+      return {
+        body: <TapMenu tapMenu={this.state.masterTapMenu} onClickAddNewTap={this.handleAddTapClick} />
       }
     }
   }
 
   render() {
+    console.log(this.state);
     let currentlyVisibleState = this.setVisibility();
     return (
       <>

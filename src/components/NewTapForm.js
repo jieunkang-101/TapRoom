@@ -7,7 +7,7 @@ function NewTapForm(props){
 
   function handleNewTapFormSubmission(event) {
     event.preventDefault();
-    props.onNewTicketCreation({brand: event.target.brand.value, name: event.target.name.value, price: event.target.price.value, abv: event.target.abv.value, pints: 124, id: v4()});
+    props.onNewTapCreation({brand: event.target.brand.value, name: event.target.name.value, price: event.target.price.value, abv: event.target.abv.value, pints: 124, id: v4()});
   }
 
   return (

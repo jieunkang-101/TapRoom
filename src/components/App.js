@@ -57,47 +57,58 @@ class App extends React.Component {
   }      
 
   handleToHome = () => {
-    this.setState(prevState => ({
-      addingTab: !prevState.addingTab,
-      showTabMenu: !prevState.showTabMenu
-    }));
+    this.setState({
+      showTabMenu: true,
+      addingTab: false,
+      selectedTap: null
+    });
   }  
 
   handleAddTapClick = () => {
-    this.setState(prevState => ({
-      addingTab: !prevState.addingTab,
-      showTabMenu: !prevState.showTabMenu
-    }));
-  }
+    this.setState({
+      addingTab: true,
+      showTabMenu: false,
+      selectedTap: null
+    });
+  }  
+
+  // handleAddTapClick = () => {
+  //   this.setState(prevState => ({
+  //     addingTab: !prevState.addingTab,
+  //     showTabMenu: false, 
+  //     selectedTap: null
+  //   }));
+  // }
 
   handleAddNewTap = (newTap) => {
     const newTapMenu = this.state.masterTapMenu.concat(newTap);
-    this.setState({masterTapMenu: newTapMenu});
-    this.setState({addingTab: false});
+    this.setState({masterTapMenu: newTapMenu,
+      addingTab: false,
+      showTabMenu: true,
+      selectedTap: null
+    });
   }
 
   handleTapSelection = (id) => {
     const selectedTap = this.state.masterTapMenu.filter(tab => tab.id === id)[0];
-    this.setState({selectedTap: selectedTap});
-    this.setState({showTabMenu: false});
+    this.setState({selectedTap: selectedTap,
+      showTabMenu: false
+    });
   }
 
 
 
   setVisibility = () => {
     if(this.state.selectedTap != null) {
-      return {
-        header: <Header onClickToHome={this.handleToHome} onClickAddNewTap={this.handleAddTapClick} />,
+      return {      
         body: <TapDetail tap={this.state.selectedTap} />
       }
     } else if (this.state.addingTab) {
       return {
-        header: <Header onClickToHome={this.handleToHome} onClickAddNewTap={this.handleAddTapClick} />,
         body: <NewTapForm onNewTapCreation={this.handleAddNewTap} />
       }
     } else if (this.state.showTabMenu) {
       return {
-        header: <Header onClickToHome={this.handleToHome} onClickAddNewTap={this.handleAddTapClick} />,
         body: <TapMenu tapMenu={this.state.masterTapMenu} onTabClick={this.handleTapSelection} />
       }
     }
@@ -106,9 +117,10 @@ class App extends React.Component {
   render() {
     console.log(this.state);
     let currentlyVisibleState = this.setVisibility();
+    console.log(currentlyVisibleState.body);
     return (
       <>
-        {currentlyVisibleState.header}
+        <Header onClickToHome={this.handleToHome} onClickAddNewTap={this.handleAddTapClick} />
         {currentlyVisibleState.body}
         <Footer />
       </>

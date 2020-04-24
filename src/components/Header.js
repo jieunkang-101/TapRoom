@@ -2,7 +2,7 @@ import React from 'react';
 
 function Header(){
   return (
-    <div class="header">
+    <div class="jumbotron">
       <h1 className="headerText">TAP ROOM</h1> 
     </div>
   );

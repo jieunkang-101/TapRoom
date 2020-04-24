@@ -1,10 +1,18 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);
+/* * {
+  font-family: 'Girassol', serif;
+  text-shadow: 4px 4px 4px #aaa;
+} */
+.jumbotrom {
+  height: 50px;
+}
 
-* {
-  font-family: Roboto;
+.headerText {
+  font-family: 'Girassol', serif;
+  text-shadow: 4px 4px 4px #aaa;
 }
 
 .footer {
+  font-family: 'Inconsolata';
   background-color: #292c2f;
   box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.12);
   box-sizing: border-box;

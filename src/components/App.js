@@ -13,6 +13,7 @@ class App extends React.Component {
     this.state = {
       showTabMenu: true,
       addingTab: false,
+      currentSelectedTap: {},
       masterTapMenu: [
         {
           id: v4(),
@@ -60,29 +61,29 @@ class App extends React.Component {
     }));
   }
 
-  // handleShowNewTapForm = () => {
-  //   this.setState(prevState => ({
-  //     showNewTapForm: !prevState.showAddTapForm
-  //   }));
-  // }
-
   handleAddNewTap = (newTap) => {
     const newTapMenu = this.state.masterTapMenu.concat(newTap);
     this.setState({masterTapMenu: newTapMenu});
     this.setState({addingTab: false});
   }
 
-
+  handleTapSelection = (id) => {
+    const selectedTap = this.state.masterTapMenu.filter(tab => tab.id === id)[0];
+    this.setState({currentSelectedTap: selectedTap});
+    this.setState({showTabMenu: false});
+  }
 
 
 
   setVisibility = () => {
     if (this.state.addingTab) {
       return {
+        header: <Header  onClickAddNewTap={this.handleAddTapClick} />,
         body: <NewTapForm onNewTapCreation={this.handleAddNewTap} />
       }
     } else if (this.state.showTabMenu) {
       return {
+        header: <Header  onClickAddNewTap={this.handleAddTapClick} />,
         body: <TapMenu tapMenu={this.state.masterTapMenu} onClickAddNewTap={this.handleAddTapClick} />
       }
     }
@@ -93,7 +94,7 @@ class App extends React.Component {
     let currentlyVisibleState = this.setVisibility();
     return (
       <>
-        <Header />
+        {currentlyVisibleState.header}
         {currentlyVisibleState.body}
         <Footer />
       </>

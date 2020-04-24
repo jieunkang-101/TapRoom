@@ -7,7 +7,6 @@ function TapMenu(props) {
 
   return (
     <>
-      <button onClick = {() => props.onClickAddNewTap()} className="btn btn-outline-info">Add New Tap</button>
       <div className="tapMenu">
         <div className="row">
           {props.tapMenu.map((tap) =>
@@ -30,7 +29,7 @@ function TapMenu(props) {
 
 TapMenu.prototypes = {
   tapMenu: PropTypes.arrayOf(PropTypes.object),
-  onClickAddNewTap: PropTypes.func
+
 }
 
 export default TapMenu;

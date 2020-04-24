@@ -1,7 +1,6 @@
-/* * {
-  font-family: 'Girassol', serif;
-  text-shadow: 4px 4px 4px #aaa;
-} */
+body {
+  font-family: 'Inconsolata', serif;
+}
 
 .jumbotrom {
   height: 50px;
@@ -12,19 +11,18 @@
   text-shadow: 4px 4px 4px #aaa;
 }
 
-.tapMenu {
+.tapMenu, .form-card {
   font-family: 'Inconsolata';
 }
-
+h1, h3 {
+  text-align: center;
+  font-weight: bold;
+}
 .tapMenu {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
  
-}
-
-.card {
-  margin-bottom: 20px;
 }
 
 .card-image {
@@ -35,11 +33,20 @@
   justify-content: center;
 }
 
-.form-card {
+/* .form-card {
   display: flex;
   justify-content: center;
 
+} */
+
+.form-card {
+  margin: 0 auto; 
+  float: none; 
+  margin-bottom: 10px; 
+  width: 500px;
+  padding: 30px;
 }
+
 
 
 .footer {

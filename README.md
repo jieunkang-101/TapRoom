@@ -24,10 +24,7 @@ A React application where a tap room can track their kegs.
   * As a seller, I want to have kegs prices to be color-coded for easy readability. This could be based on their price, the style of beer or kombucha, or the amount of pints left.
 
 ### :small_orange_diamond: A Component Tree
-<img src="src/img/tap-room-diagram.jpg"
-    alt="Application Component Tree"
-    style="float: center"
-    width= "600" />  
+<img src="src/img/tap-room-diagram.jpg" alt="Application Component Tree" width= "600px" />  
 
 
 ## 2. Development

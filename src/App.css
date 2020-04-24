@@ -2,6 +2,7 @@
   font-family: 'Girassol', serif;
   text-shadow: 4px 4px 4px #aaa;
 } */
+
 .jumbotrom {
   height: 50px;
 }
@@ -10,6 +11,30 @@
   font-family: 'Girassol', serif;
   text-shadow: 4px 4px 4px #aaa;
 }
+
+.tapMenu {
+  font-family: 'Inconsolata';
+}
+
+.tapMenu {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+ 
+}
+
+.card {
+  margin-bottom: 20px;
+}
+.card-image {
+  height: 180px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+
 
 .footer {
   font-family: 'Inconsolata';

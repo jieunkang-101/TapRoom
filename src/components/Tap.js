@@ -2,18 +2,29 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Tap(props) {
-
+  var cardStyle = {
+    marginRight: 'auto',
+    marginLeft: 'auto',
+    height: '380px',
+    width: '280px'
+  };
 
   return (
-    <div className= "tap">
-      <img src={props.img}></img>
-      <ul>
-        <li>name: {props.name}</li>
-        <li>brand: {props.brand}</li>
-        <li>price: {props.price}</li>
-        <li>ABV: {props.abv}</li>
-        <li>Left Pints: {props.pints}</li>
-      </ul>
+    <div className= "col s12 m6 l4">
+      <div style={cardStyle} className="card">
+        <div className="card-image">
+          <img src={props.img} height="180"></img>
+        </div>
+        <div className="card-content">
+          <ul>
+            <li>name: <strong>{props.name}</strong></li>
+            <li>brand: <strong>{props.brand}</strong></li>
+            <li>price: <strong>{props.price}</strong></li>
+            <li>ABV: <strong>{props.abv}</strong></li>
+            <li>Left Pints: <strong>{props.pints}</strong></li>
+          </ul>
+        </div>
+      </div>  
     </div>
   )
 }

@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import Footer from './Footer';
 import TapMenu from './TapMenu';
+import NewTapForm from './NewTapForm';
 import '../App.css';
 import { v4 } from 'uuid';
 
@@ -34,6 +35,7 @@ class App extends React.Component {
           <header className="App-header">
             <Header />
             <TapMenu />
+            <NewTapForm />
             <Footer />
           </header>
         </div>

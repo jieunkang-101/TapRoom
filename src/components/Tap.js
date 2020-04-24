@@ -17,10 +17,10 @@ function Tap(props) {
         </div>
         <div className="card-content">
           <ul>
-            <li>name: <strong>{props.name}</strong></li>
-            <li>brand: <strong>{props.brand}</strong></li>
-            <li>price: <strong>{props.price}</strong></li>
-            <li>ABV: <strong>{props.abv}</strong></li>
+            <li>Brand: <strong>{props.brand}</strong></li>
+            <li>Name: <strong>{props.name}</strong></li>
+            <li>price: <strong>{props.price}</strong> $</li>
+            <li>ABV: <strong>{props.abv}</strong> % ABV</li>
             <li>Left Pints: <strong>{props.pints}</strong></li>
           </ul>
         </div>

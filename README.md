@@ -9,7 +9,6 @@
 [![MIT license](https://img.shields.io/badge/License-MIT-orange.svg)](https://lbesson.mit-license.org/)
 
 
-
 ## 1. Description
 A React application where a tap room can track their kegs.
 
@@ -25,10 +24,10 @@ A React application where a tap room can track their kegs.
   * As a seller, I want to have kegs prices to be color-coded for easy readability. This could be based on their price, the style of beer or kombucha, or the amount of pints left.
 
 ### :small_orange_diamond: A Component Tree
-<img src="src/assets/img/social-media-clone.jpg"
+<img src="src/img/tap-room-diagram.jpg"
     alt="Application Component Tree"
     style="float: center"
-    height= "600" />  
+    width= "600" />  
 
 
 ## 2. Development

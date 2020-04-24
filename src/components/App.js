@@ -5,6 +5,7 @@ import TapMenu from './TapMenu';
 import NewTapForm from './NewTapForm';
 import '../App.css';
 import { v4 } from 'uuid';
+import TapDetail from './TabDetail';
 
 class App extends React.Component {
 
@@ -13,7 +14,7 @@ class App extends React.Component {
     this.state = {
       showTabMenu: true,
       addingTab: false,
-      currentSelectedTap: {},
+      selectedTap: null,
       masterTapMenu: [
         {
           id: v4(),
@@ -55,9 +56,17 @@ class App extends React.Component {
     }
   }      
 
+  handleToHome = () => {
+    this.setState(prevState => ({
+      addingTab: !prevState.addingTab,
+      showTabMenu: !prevState.showTabMenu
+    }));
+  }  
+
   handleAddTapClick = () => {
     this.setState(prevState => ({
-      addingTab: !prevState.addingTab
+      addingTab: !prevState.addingTab,
+      showTabMenu: !prevState.showTabMenu
     }));
   }
 
@@ -69,22 +78,27 @@ class App extends React.Component {
 
   handleTapSelection = (id) => {
     const selectedTap = this.state.masterTapMenu.filter(tab => tab.id === id)[0];
-    this.setState({currentSelectedTap: selectedTap});
+    this.setState({selectedTap: selectedTap});
     this.setState({showTabMenu: false});
   }
 
 
 
   setVisibility = () => {
-    if (this.state.addingTab) {
+    if(this.state.selectedTap != null) {
       return {
-        header: <Header  onClickAddNewTap={this.handleAddTapClick} />,
+        header: <Header onClickToHome={this.handleToHome} onClickAddNewTap={this.handleAddTapClick} />,
+        body: <TapDetail tap={this.state.selectedTap} />
+      }
+    } else if (this.state.addingTab) {
+      return {
+        header: <Header onClickToHome={this.handleToHome} onClickAddNewTap={this.handleAddTapClick} />,
         body: <NewTapForm onNewTapCreation={this.handleAddNewTap} />
       }
     } else if (this.state.showTabMenu) {
       return {
-        header: <Header  onClickAddNewTap={this.handleAddTapClick} />,
-        body: <TapMenu tapMenu={this.state.masterTapMenu} onClickAddNewTap={this.handleAddTapClick} />
+        header: <Header onClickToHome={this.handleToHome} onClickAddNewTap={this.handleAddTapClick} />,
+        body: <TapMenu tapMenu={this.state.masterTapMenu} onTabClick={this.handleTapSelection} />
       }
     }
   }

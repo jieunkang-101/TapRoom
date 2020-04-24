@@ -19,6 +19,7 @@ function TapMenu(props) {
               price={tap.price}
               abv={tap.abv}
               pints={tap.pints}
+              whenTabClicked={props.onTabClick}
             />
           )}
         </div>  
@@ -29,7 +30,7 @@ function TapMenu(props) {
 
 TapMenu.prototypes = {
   tapMenu: PropTypes.arrayOf(PropTypes.object),
-
+  onTabClick: PropTypes.func
 }
 
 export default TapMenu;

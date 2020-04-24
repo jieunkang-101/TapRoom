@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 function Tap(props) {
 
   return (
-    <div className= "col s12 m6 l4">
+    <div onClick={() => props.whenTabClicked(props.id)} className= "col s12 m6 l4">
       <div className="card">
         <div className="card-image">
           <img src={props.img} height="180" alt="Brand"></img>
@@ -31,6 +31,7 @@ Tap.propTypes = {
   abv: PropTypes.string.isRequired,
   pints: PropTypes.number,
   id: PropTypes.string,
+  whenTabClicked: PropTypes.func
 };
 
 export default Tap;

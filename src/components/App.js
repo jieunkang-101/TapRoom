@@ -148,7 +148,7 @@ class App extends React.Component {
       <>
         <Header onClickToHome={this.handleToHome} onClickAddNewTap={this.handleAddTapClick} />
         {currentlyVisibleState.body}
-        <Footer />
+        <Footer onClickToHome={this.handleToHome} />
       </>
     );
     }  

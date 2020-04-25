@@ -12,6 +12,9 @@
 ## 1. Description
 A React application where a tap room can track their kegs.
 
+### :small_orange_diamond: Preview
+<img src="src/img/tap-room-screenshot.gif" width="600px" />
+
 ### :small_orange_diamond: User Stories
   * As a seller, I want to see a menu of all available kegs. For each keg, I want to see its name, brand, price and ABV(Alcohol by Volume).
   * As a seller, I want to submit a form to add a new keg to a list.

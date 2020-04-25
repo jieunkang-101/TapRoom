@@ -3,8 +3,8 @@ import Header from './Header';
 import Footer from './Footer';
 import TapMenu from './TapMenu';
 import NewTapForm from './NewTapForm';
+import EditTapForm from './EditTapForm';
 import '../App.css';
-import { v4 } from 'uuid';
 import TapDetail from './TabDetail';
 
 class App extends React.Component {
@@ -13,12 +13,12 @@ class App extends React.Component {
     super(props);
     this.state = {
       showTabMenu: true,
-      addingTab: false,
+      addingTap: false,
       selectedTap: null,
+      editingTap: false,
       masterTapMenu: [
         {
           id: "b7c6018c-fff0-44b7-9df3-49bd798d33b2",
-          // id: v4(),
           img: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTr4-0GqixCFrqtZ8bEgiwkRdGYXcyNlD0TpX3PMwzJx4b9r8SS&usqp=CAU",
           name: "MIRROR POND PALE ALE",
           brand: "DESCHUTES",
@@ -64,31 +64,36 @@ class App extends React.Component {
   handleToHome = () => {
     this.setState({
       showTabMenu: true,
-      addingTab: false,
+      addingTap: false,
+      editingTap: false,
       selectedTap: null
     });
   }  
 
   handleAddTapClick = () => {
     this.setState({
-      addingTab: true,
+      addingTap: true,
       showTabMenu: false,
-      selectedTap: null
+      selectedTap: null,
+      editingTap: false
     });
   }  
 
   handleAddNewTap = (newTap) => {
     const newTapMenu = this.state.masterTapMenu.concat(newTap);
-    this.setState({masterTapMenu: newTapMenu,
-      addingTab: false,
+    this.setState({
+      masterTapMenu: newTapMenu,
+      addingTap: false,
       showTabMenu: true,
-      selectedTap: null
+      selectedTap: null,
+      editingTap: false,
     });
   }
 
   handleTapSelection = (id) => {
     const selectedTap = this.state.masterTapMenu.filter(tab => tab.id === id)[0];
-    this.setState({selectedTap: selectedTap,
+    this.setState({
+      selectedTap: selectedTap,
       showTabMenu: false
     });
   }
@@ -106,8 +111,11 @@ class App extends React.Component {
     //   selectedTap.message = "Out of Stock!";
     // } 
     //console.log(selectedTap.pints);
-    const newTapMenu = this.state.masterTapMenu.filter(tap => tap.id !== id).concat(selectedTap);
-    this.setState({masterTapMenu: newTapMenu,  
+    const newTapMenu = this.state.masterTapMenu
+      .filter(tap => tap.id !== id)
+      .concat(selectedTap);
+    this.setState({
+      masterTapMenu: newTapMenu,  
       showTabMenu: true, 
       selectedTap: null}); 
   }
@@ -115,22 +123,53 @@ class App extends React.Component {
   handleRestockTap = (tapToRestock) => {
     this.state.selectedTap.message = "Enough";
     this.state.selectedTap.pints += 124;
-    const newTapMenu = this.state.masterTapMenu.filter(tap => tap.id !== this.state.selectedTap.id).concat(tapToRestock);
+    const newTapMenu = this.state.masterTapMenu
+      .filter(tap => tap.id !== this.state.selectedTap.id)
+      .concat(tapToRestock);
     this.setState({masterTapMenu: newTapMenu});
   }
 
   handleDeleteTap = (id) => {
     const newTapMenu = this.state.masterTapMenu.filter(tap => tap.id !== id);
-    this.setState({masterTapMenu: newTapMenu});
-    this.setState({selectedTap: null, showTabMenu: true});
+    this.setState({
+      masterTapMenu: newTapMenu,
+      selectedTap: null, 
+      showTabMenu: true
+    });
+  }
+
+  handleEditClick = () => {
+    this.setState({
+      editingTap: true,
+      addingTap: false,
+      showTabMenu: false
+    });
+    console.log(this.state.selectedTap);
+  }
+
+  handleEditTap = (tapToEdit) => {
+    console.log(this.state.selectedTap);
+    const editedNewTapMenu = this.state.masterTapMenu
+      .filter(tap => tap.id !== this.state.selectedTap.id)
+      .concat(tapToEdit);
+    this.setState({
+      masterTapMenu: editedNewTapMenu,
+      editingTap: false,
+      selectedTap: null,
+      showTabMenu: true
+    });  
   }
 
   setVisibility = () => {
-    if(this.state.selectedTap != null) {
-      return {      
-        body: <TapDetail tap={this.state.selectedTap} onRestockTap={this.handleRestockTap}  onDeleteTap={this.handleDeleteTap} />
+    if (this.state.editingTap) {
+      return {
+        body: <EditTapForm tap = {this.state.selectedTap} onEditTap={this.handleEditTap} />
       }
-    } else if (this.state.addingTab) {
+    } else if (this.state.selectedTap != null) {
+      return {      
+        body: <TapDetail tap={this.state.selectedTap} onRestockTap={this.handleRestockTap} onEditClick={this.handleEditClick} onDeleteTap={this.handleDeleteTap} />
+      }
+    } else if (this.state.addingTap) {
       return {
         body: <NewTapForm onNewTapCreation={this.handleAddNewTap} />
       }

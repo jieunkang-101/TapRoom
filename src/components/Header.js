@@ -4,9 +4,13 @@ import PropTypes from 'prop-types';
 function Header(props){
   return (
     <div className="jumbotron" id="jumbo">
-      <h1 className="headerText">TAP ROOM</h1> 
-      <button onClick={() => props.onClickToHome()} className="btn btn-outline-info">Menu</button>
-      <button onClick={() => props.onClickAddNewTap()} className="btn btn-outline-info">Add New Tap</button>
+      <div className="headerText">
+        <h1>TAP ROOM</h1> 
+      </div>
+      <div className="button-right">
+        <button onClick={() => props.onClickToHome()} className="btn btn-outline-info">Menu</button>
+        <button onClick={() => props.onClickAddNewTap()} className="btn btn-outline-info">Add New Tap</button>
+      </div>
     </div>
   );
 

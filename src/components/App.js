@@ -107,7 +107,9 @@ class App extends React.Component {
     // } 
     //console.log(selectedTap.pints);
     const newTapMenu = this.state.masterTapMenu.filter(tap => tap.id !== id).concat(selectedTap);
-    this.setState({masterTapMenu: newTapMenu,  showTabMenu: true, selectedTap: null}); 
+    this.setState({masterTapMenu: newTapMenu,  
+      showTabMenu: true, 
+      selectedTap: null}); 
   }
 
   handleRestockTap = (tapToRestock) => {
@@ -118,9 +120,10 @@ class App extends React.Component {
   }
 
   handleDeleteTap = (id) => {
-    
+    const newTapMenu = this.state.masterTapMenu.filter(tap => tap.id !== id);
+    this.setState({masterTapMenu: newTapMenu});
+    this.setState({selectedTap: null, showTabMenu: true});
   }
-
 
   setVisibility = () => {
     if(this.state.selectedTap != null) {

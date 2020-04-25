@@ -14,7 +14,7 @@ function Footer(props){
             <a className="link-1" onClick={() => props.onClickToHome()}>Home</a>
             <a href="mailto:jieunkang101@gmail.com">Contact</a>
           </p>
-          <p>Jieun Kang &copy; 2020</p>
+          <p>Copyright &copy; 2020 Jieun Kang</p>
         </div>
       </div>
     </React.Fragment>

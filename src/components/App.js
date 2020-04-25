@@ -24,7 +24,7 @@ class App extends React.Component {
           brand: "DESCHUTES",
           price: "12",
           abv: "12",
-          pints: 3,
+          pints: 124,
           message:"Enough"
         },
         {
@@ -54,7 +54,7 @@ class App extends React.Component {
           brand: "BRIDGEPORT",
           price: "10.5",
           abv: "10",
-          pints: 124,
+          pints: 3,
           message:"Enough"
         }
       ]
@@ -144,11 +144,9 @@ class App extends React.Component {
       addingTap: false,
       showTabMenu: false
     });
-    console.log(this.state.selectedTap);
   }
 
   handleEditTap = (tapToEdit) => {
-    console.log(this.state.selectedTap);
     const editedNewTapMenu = this.state.masterTapMenu
       .filter(tap => tap.id !== this.state.selectedTap.id)
       .concat(tapToEdit);
@@ -159,6 +157,7 @@ class App extends React.Component {
       showTabMenu: true
     });  
   }
+
 
   setVisibility = () => {
     if (this.state.editingTap) {

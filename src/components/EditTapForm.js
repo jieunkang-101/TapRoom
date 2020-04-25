@@ -14,7 +14,7 @@ function EditTapForm(props){
   return (
     <React.Fragment>
       <div>
-      <h2>Add New Tap</h2>
+      <h2>Edit This Tap</h2>
       <ReusableForm 
         formSubmissionHandler={handleEditTapFormSubmission}
         buttonText="Add" />

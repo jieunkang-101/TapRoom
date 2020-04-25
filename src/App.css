@@ -3,14 +3,19 @@ body {
 }
 
 #jumbo {
-  height: 150px;
+  height: 120px;
   padding-top: 40px;
-  margin: 30px;
+  margin: 0;
+  /* margin: 30px;
   display: flex;
   flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
-  position: relative;
+  position: relative; */
+}
+
+.navbar {
+  font-size: 1.2em;
 }
 
 .headerText {
@@ -133,7 +138,7 @@ h2 {
   /* font: normal 16px sans-serif; */
   font-weight: bold;
   padding: 25px 30px;
-  margin-top: 100px;
+  margin-top: 60px;
 }
 
 .footer p.footer-links a {

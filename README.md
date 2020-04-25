@@ -13,7 +13,7 @@
 A React application where a tap room can track their kegs.
 
 ### :small_orange_diamond: Preview
-<img src="src/img/tap-room-screenshot.gif" width="600px" />
+<img src="src/img/tap-room-screenshot.gif" width="640px" />
 
 ### :small_orange_diamond: User Stories
   * As a seller, I want to see a menu of all available kegs. For each keg, I want to see its name, brand, price and ABV(Alcohol by Volume).
@@ -27,7 +27,7 @@ A React application where a tap room can track their kegs.
   * As a seller, I want to have kegs prices to be color-coded for easy readability. This could be based on their price, the style of beer or kombucha, or the amount of pints left.
 
 ### :small_orange_diamond: A Component Tree
-<img src="src/img/tap-room-diagram.jpg" alt="Application Component Tree" width= "600px" />  
+<img src="src/img/tap-room-diagram.jpg" alt="Application Component Tree" width= "640px" />  
 
 
 ## 2. Development

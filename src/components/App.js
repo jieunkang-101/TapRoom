@@ -101,16 +101,6 @@ class App extends React.Component {
   handleSellPint = (id) => {
     const selectedTap = this.state.masterTapMenu.filter(tab => tab.id === id)[0];
     selectedTap.pints > 0 ? selectedTap.pints -- : selectedTap.message = "Out of stock!";
-    // if (selectedTap.pint > 10) {
-    //   selectedTap.pints -- ;
-    // } else if ( 1 < selectedTap.pint < 10) {
-    //   selectedTap.pints -- ;
-    //   selectedTap.message = "Almost Empty";
-    // } else {
-    //   selectedTap.pints === 0;
-    //   selectedTap.message = "Out of Stock!";
-    // } 
-    //console.log(selectedTap.pints);
     const newTapMenu = this.state.masterTapMenu
       .filter(tap => tap.id !== id)
       .concat(selectedTap);
@@ -120,12 +110,13 @@ class App extends React.Component {
       selectedTap: null}); 
   }
 
-  handleRestockTap = (tapToRestock) => {
+  handleRestockTap = (id) => {
+    const selectedTap = this.state.masterTapMenu.filter(tab => tab.id === id)[0];
+    selectedTap.pints  += 124;
     this.state.selectedTap.message = "Enough";
-    this.state.selectedTap.pints += 124;
     const newTapMenu = this.state.masterTapMenu
-      .filter(tap => tap.id !== this.state.selectedTap.id)
-      .concat(tapToRestock);
+      .filter(tap => tap.id !== id)
+      .concat(selectedTap);
     this.setState({masterTapMenu: newTapMenu});
   }
 

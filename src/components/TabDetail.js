@@ -7,7 +7,7 @@ function TapDetail(props){
 
   return (
     <>
-      <div className="tab-detail detail-card">
+      <div className="card detail-card">
         <h2>Tap Detail</h2>
         <ul>
           <li>Id: {tap.id}</li>
@@ -17,6 +17,9 @@ function TapDetail(props){
           <li>ABV: <strong>{tap.abv}</strong> % ABV</li>
           <li>Left Pints: <strong>{tap.pints}</strong></li>
         </ul>
+      </div>
+      <div className="card-footer">
+        
       </div>
     </>
   );

@@ -23,7 +23,8 @@ class App extends React.Component {
           brand: "DESCHUTES",
           price: "12",
           abv: "12",
-          pints: 124
+          pints: 3,
+          message:"Enough"
         },
         {
           id: "8ade42f5-28c7-43b8-a286-f062ecc5b541",
@@ -32,7 +33,8 @@ class App extends React.Component {
           brand: "BUOY",
           price: "11",
           abv: "9.8",
-          pints: 124
+          pints: 5,
+          message:"Enough"
         },
         {
           id: "891cb0aa-84e5-49a4-89db-84f4be7b873e",
@@ -41,7 +43,8 @@ class App extends React.Component {
           brand: "GIGANTIC",
           price: "13",
           abv: "11.4",
-          pints: 124
+          pints: 124,
+          message:"Enough"
         },
         {
           id: "1e33d1d1-0f92-4eac-b29f-cad63625b710",
@@ -50,7 +53,8 @@ class App extends React.Component {
           brand: "BRIDGEPORT",
           price: "10.5",
           abv: "10",
-          pints: 124
+          pints: 124,
+          message:"Enough"
         }
       ]
     }
@@ -92,7 +96,7 @@ class App extends React.Component {
     const selectedTap = this.state.masterTapMenu.filter(tab => tab.id === id)[0];
     this.setState({selectedTap: selectedTap})
     console.log(selectedTap.id);
-    selectedTap.pints --;
+    selectedTap.pints > 0 ? selectedTap.pints -- : selectedTap.message = "Out of stock!";
     const newTapMenu = this.state.masterTapMenu.filter(tap => tap.id !== id).concat(selectedTap);
     this.setState({masterTapMenu: newTapMenu,  showTabMenu: true, selectedTap: null});
    

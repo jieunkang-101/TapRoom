@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 
 function Tap(props) {
 
+  // function LeftPints
+
   return (
     <>
       <div className= "col s12 m6 l4">
@@ -17,6 +19,7 @@ function Tap(props) {
               <li>price: <strong>{props.price}</strong> $</li>
               <li>ABV: <strong>{props.abv}</strong> % ABV</li>
               <li>Left Pints: <strong>{props.pints}</strong></li>
+              <li><span id="left-pints">{props.message}</span></li>
             </ul>
           </div>
           <div className="card-footer">  
@@ -38,6 +41,7 @@ Tap.propTypes = {
   price: PropTypes.string.isRequired,
   abv: PropTypes.string.isRequired,
   pints: PropTypes.number,
+  message: PropTypes.string,
   id: PropTypes.string,
   whenTabClicked: PropTypes.func,
   whenSellClicked: PropTypes.func

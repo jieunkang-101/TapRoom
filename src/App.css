@@ -29,11 +29,11 @@ body {
   display: flex;
   justify-content: flex-end;
 }
-/* 
+
 .btn:hover {
   border-radius: 30px;
   border-color: #494949 !important;
-  } */
+  }
 
 .headerText {
   font-family: 'Girassol', serif;
@@ -68,7 +68,7 @@ h2 {
   margin-right: auto;
   margin-left: auto;
   margin-bottom: 25px;
-  height: 460px;
+  height: 480px;
   width: 280px;
 }
 
@@ -83,6 +83,11 @@ h2 {
 .card-footer {
   padding-top: 0%;
   padding-bottom: 0%;
+}
+
+#left-pints {
+  color: red;
+  font-weight: bold;
 }
 
 .detail-card {

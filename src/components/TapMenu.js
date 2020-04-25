@@ -19,6 +19,7 @@ function TapMenu(props) {
               price={tap.price}
               abv={tap.abv}
               pints={tap.pints}
+              message={tap.message}
               whenTabClicked={props.onTabClick}
               whenSellClicked={props.onSellPint}
             />

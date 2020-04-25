@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 
 function TapDetail(props){
 
-  const { tap } = props;
+  const { tap, onRestockTap, onDeleteTap } = props;
 
   return (
     <>
@@ -16,10 +16,14 @@ function TapDetail(props){
           <li>price: <strong>{tap.price}</strong> $</li>
           <li>ABV: <strong>{tap.abv}</strong> % ABV</li>
           <li>Left Pints: <strong>{tap.pints}</strong></li>
+          <li>Current Status: <strong><span className="left-pints">{tap.message}</span></strong></li>
         </ul>
-      </div>
-      <div className="card-footer">
-        
+        <div className="card-footer">
+          <div className="btn-group" role="group" aria-label="Basic example">
+            <button onClick={() => props.onRestockTap(props.tap.id)} className="btn btn-outline-info">Restock</button>
+            <button onClick={() => props.onDeleteTap(props.tap.id)} className="btn btn-outline-info">Delete</button>
+          </div>
+        </div>
       </div>
     </>
   );
@@ -27,6 +31,8 @@ function TapDetail(props){
 
 TapDetail.prototypes= {
   tab: PropTypes.object,
+  onRestockTap: PropTypes.func,
+  onDeleteTap: PropTypes.func
 }
 
 export default TapDetail;

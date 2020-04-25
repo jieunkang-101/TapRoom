@@ -18,6 +18,7 @@ class App extends React.Component {
       masterTapMenu: [
         {
           id: "b7c6018c-fff0-44b7-9df3-49bd798d33b2",
+          // id: v4(),
           img: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTr4-0GqixCFrqtZ8bEgiwkRdGYXcyNlD0TpX3PMwzJx4b9r8SS&usqp=CAU",
           name: "MIRROR POND PALE ALE",
           brand: "DESCHUTES",
@@ -33,7 +34,7 @@ class App extends React.Component {
           brand: "BUOY",
           price: "11",
           abv: "9.8",
-          pints: 5,
+          pints: 12,
           message:"Enough"
         },
         {
@@ -94,19 +95,37 @@ class App extends React.Component {
 
   handleSellPint = (id) => {
     const selectedTap = this.state.masterTapMenu.filter(tab => tab.id === id)[0];
-    this.setState({selectedTap: selectedTap})
-    console.log(selectedTap.id);
     selectedTap.pints > 0 ? selectedTap.pints -- : selectedTap.message = "Out of stock!";
+    // if (selectedTap.pint > 10) {
+    //   selectedTap.pints -- ;
+    // } else if ( 1 < selectedTap.pint < 10) {
+    //   selectedTap.pints -- ;
+    //   selectedTap.message = "Almost Empty";
+    // } else {
+    //   selectedTap.pints === 0;
+    //   selectedTap.message = "Out of Stock!";
+    // } 
+    //console.log(selectedTap.pints);
     const newTapMenu = this.state.masterTapMenu.filter(tap => tap.id !== id).concat(selectedTap);
-    this.setState({masterTapMenu: newTapMenu,  showTabMenu: true, selectedTap: null});
-   
+    this.setState({masterTapMenu: newTapMenu,  showTabMenu: true, selectedTap: null}); 
+  }
+
+  handleRestockTap = (tapToRestock) => {
+    this.state.selectedTap.message = "Enough";
+    this.state.selectedTap.pints += 124;
+    const newTapMenu = this.state.masterTapMenu.filter(tap => tap.id !== this.state.selectedTap.id).concat(tapToRestock);
+    this.setState({masterTapMenu: newTapMenu});
+  }
+
+  handleDeleteTap = (id) => {
+    
   }
 
 
   setVisibility = () => {
     if(this.state.selectedTap != null) {
       return {      
-        body: <TapDetail tap={this.state.selectedTap} />
+        body: <TapDetail tap={this.state.selectedTap} onRestockTap={this.handleRestockTap}  onDeleteTap={this.handleDeleteTap} />
       }
     } else if (this.state.addingTab) {
       return {

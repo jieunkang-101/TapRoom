@@ -19,7 +19,7 @@ function Tap(props) {
               <li>price: <strong>{props.price}</strong> $</li>
               <li>ABV: <strong>{props.abv}</strong> % ABV</li>
               <li>Left Pints: <strong>{props.pints}</strong></li>
-              <li><span id="left-pints">{props.message}</span></li>
+              <li><span className="left-pints">{props.message}</span></li>
             </ul>
           </div>
           <div className="card-footer">  

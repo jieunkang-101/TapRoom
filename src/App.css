@@ -35,6 +35,11 @@ body {
   border-color: #494949 !important;
   }
 
+.btn-group {
+  display: flex;
+  /* justify-content: space-between; */
+}
+
 .headerText {
   font-family: 'Girassol', serif;
   text-shadow: 4px 4px 4px #aaa;
@@ -85,7 +90,7 @@ h2 {
   padding-bottom: 0%;
 }
 
-#left-pints {
+.left-pints {
   color: red;
   font-weight: bold;
 }

@@ -23,7 +23,7 @@ A React application where a tap room can track their kegs. This website has full
   * As a seller, I want to see how many pints are left in a keg. A full keg has roughly 124 pints.
   * As a seller, I want to be able to click a button next to a keg whenever I sell a pint of it. This should decrease the number of pints left by 1. Pints should not be able to go below 0.
   * As a seller, I want a keg to update to say "Out of Stock" once it's empty.
-  * As a user, I want the option to edit a keg's properties after entering them just in case I make a mistake.
+  * As a seller, I want the option to edit a keg's properties after entering them just in case I make a mistake.
   * As a seller, I want to be able to delete a keg.
 
 #### Future improvements  

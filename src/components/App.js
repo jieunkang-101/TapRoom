@@ -113,7 +113,7 @@ class App extends React.Component {
   handleRestockTap = (id) => {
     const selectedTap = this.state.masterTapMenu.filter(tab => tab.id === id)[0];
     selectedTap.pints  += 124;
-    this.state.selectedTap.message = "Enough";
+    selectedTap.message = "Enough";
     const newTapMenu = this.state.masterTapMenu
       .filter(tap => tap.id !== id)
       .concat(selectedTap);

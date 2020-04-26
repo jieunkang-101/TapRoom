@@ -22,10 +22,10 @@ class App extends React.Component {
           img: "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTr4-0GqixCFrqtZ8bEgiwkRdGYXcyNlD0TpX3PMwzJx4b9r8SS&usqp=CAU",
           name: "MIRROR POND PALE ALE",
           brand: "DESCHUTES",
-          price: "12",
+          price: "3",
           abv: "12",
-          pints: 124,
-          message:"Enough"
+          pints: 3,
+          message:"Almost Empty"
         },
         {
           id: "8ade42f5-28c7-43b8-a286-f062ecc5b541",
@@ -34,7 +34,7 @@ class App extends React.Component {
           brand: "BUOY",
           price: "11",
           abv: "9.8",
-          pints: 12,
+          pints: 124,
           message:"Enough"
         },
         {
@@ -54,8 +54,8 @@ class App extends React.Component {
           brand: "BRIDGEPORT",
           price: "10.5",
           abv: "10",
-          pints: 3,
-          message:"Almost Empty"
+          pints: 12,
+          message:"Enough"
         }
       ]
     }

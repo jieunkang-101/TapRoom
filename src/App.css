@@ -103,7 +103,23 @@ h2 {
   position: relative;
 }
 
-.left-pints {
+.price-color {
+  color: rgb(0, 161, 236);
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+.left-pints-enough {
+  color: rgb(1, 161, 49);
+  font-weight: bold;
+}
+
+.left-pints-almost {
+  color: rgb(255, 166, 0);
+  font-weight: bold;
+}
+
+.left-pints-empty {
   color: red;
   font-weight: bold;
 }

@@ -55,7 +55,7 @@ class App extends React.Component {
           price: "10.5",
           abv: "10",
           pints: 3,
-          message:"Enough"
+          message:"Almost Empty"
         }
       ]
     }
@@ -80,7 +80,9 @@ class App extends React.Component {
   }  
 
   handleAddNewTap = (newTap) => {
-    const newTapMenu = this.state.masterTapMenu.concat(newTap);
+    const newMessage = "Enough";
+    const newTapWithMessage = {...newTap, message: newMessage}
+    const newTapMenu = this.state.masterTapMenu.concat(newTapWithMessage);
     this.setState({
       masterTapMenu: newTapMenu,
       addingTap: false,
@@ -100,10 +102,15 @@ class App extends React.Component {
 
   handleSellPint = (id) => {
     const selectedTap = this.state.masterTapMenu.filter(tab => tab.id === id)[0];
-    selectedTap.pints > 0 ? selectedTap.pints -- : selectedTap.message = "Out of stock!";
+    const leftPints = selectedTap.pints > 0 ? selectedTap.pints -= 1 : 0;
+    const updatedPintTap = {...selectedTap, pints: leftPints};
+    const newMessage = updatedPintTap.pints < 10 ? "Almost Empty": "Enough";
+    const updateMsgTap = {...updatedPintTap, message: newMessage};
+    const emptyMessage = updateMsgTap.pints == 0 ? "Out of Stock!": newMessage;
+    const finalUpdateTap = {...updateMsgTap, message: emptyMessage};
     const newTapMenu = this.state.masterTapMenu
       .filter(tap => tap.id !== id)
-      .concat(selectedTap);
+      .concat(finalUpdateTap);
     this.setState({
       masterTapMenu: newTapMenu,  
       showTabMenu: true, 
@@ -112,11 +119,13 @@ class App extends React.Component {
 
   handleRestockTap = (id) => {
     const selectedTap = this.state.masterTapMenu.filter(tab => tab.id === id)[0];
-    selectedTap.pints  += 124;
-    selectedTap.message = "Enough";
+    const restockPints = selectedTap.pints += 124;
+    const updatedPintTap = {...selectedTap, pints: restockPints};
+    const newMessage = "Enough";
+    const updateMsgTap = {...updatedPintTap, message: newMessage};
     const newTapMenu = this.state.masterTapMenu
       .filter(tap => tap.id !== id)
-      .concat(selectedTap);
+      .concat(updateMsgTap);
     this.setState({masterTapMenu: newTapMenu});
   }
 

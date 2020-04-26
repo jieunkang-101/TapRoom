@@ -16,10 +16,14 @@ function Tap(props) {
             <ul>
               <li>Brand: <strong>{props.brand}</strong></li>
               <li>Name: <strong>{props.name}</strong></li>
-              <li>price: <strong>{props.price}</strong> $</li>
+              <li>price: <span className="price-color">{props.price}</span> $</li>
               <li>ABV: <strong>{props.abv}</strong> % ABV</li>
               <li>Left Pints: <strong>{props.pints}</strong></li>
-              <li><span className="left-pints">{props.message}</span></li>
+              <li>
+                {props.message == "Enough" && <p className="left-pints-enough">{props.message}</p>}
+                {props.message == "Almost Empty" && <p className="left-pints-almost">{props.message}</p>}
+                {props.message == "Out of Stock!" && <p className="left-pints-empty">{props.message}</p>}
+              </li>
             </ul>
           </div>
           <div className="card-footer">  

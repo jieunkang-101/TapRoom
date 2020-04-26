@@ -10,7 +10,8 @@
 
 
 ## 1. Description
-A React application where a tap room can track their kegs.
+A React application where a tap room can track their kegs. This website has full CRUD funcionality to tap room.
+* _View working page at_ https://jieunkang-101.github.io/TapRoom
 
 ### :small_orange_diamond: Preview
 <img src="src/img/tap-room-screenshot.gif" width="640px" />

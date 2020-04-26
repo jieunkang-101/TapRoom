@@ -26,9 +26,7 @@ A React application where a tap room can track their kegs. This website has full
   * As a seller, I want to be able to click on a keg to see its detail page.
   * As a seller, I want the option to edit a keg's properties after entering them just in case I make a mistake.
   * As a seller, I want to be able to delete a keg.
-
-#### Future improvements  
-  * As a seller, I want to have kegs prices to be color-coded for easy readability. This could be based on their price, the style of beer or the amount of pints left.
+  * As a seller, I want to have kegs stock message to be color-coded for easy readability. This is based on the amount of pints left.
 
 ### :small_orange_diamond: A Component Tree
 <img src="src/img/tap-room-diagram.jpg" alt="Application Component Tree" width= "640px" />  
@@ -39,9 +37,7 @@ A React application where a tap room can track their kegs. This website has full
 + [npm](https://www.npmjs.com/) 
 + [react](https://reactjs.org/) 
 + [Webpack](https://webpack.js.org/)
-+ [drawio](https://app.diagrams.net/)
 + [bootstrap](https://getbootstrap.com/)
-+ [favicon](https://www.favicon-generator.org/) 
 
 ### :small_orange_diamond: Run this project to development server
 ```bash

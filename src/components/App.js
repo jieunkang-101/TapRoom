@@ -4,8 +4,8 @@ import Footer from './Footer';
 import TapMenu from './TapMenu';
 import NewTapForm from './NewTapForm';
 import EditTapForm from './EditTapForm';
-import '../App.css';
 import TapDetail from './TabDetail';
+import '../App.css';
 
 class App extends React.Component {
 
@@ -126,7 +126,11 @@ class App extends React.Component {
     const newTapMenu = this.state.masterTapMenu
       .filter(tap => tap.id !== id)
       .concat(updateMsgTap);
-    this.setState({masterTapMenu: newTapMenu});
+    this.setState({
+      masterTapMenu: newTapMenu,
+      selectedTap: null, 
+      showTabMenu: true
+    });
   }
 
   handleDeleteTap = (id) => {

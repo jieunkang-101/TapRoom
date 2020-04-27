@@ -1,6 +1,6 @@
 # :beer: Tap Room
 
-#### React Fundamentals Independence Project, 25 April 2020
+#### React Fundamentals Independence Project, 4.25.2020
 
 #### By **_Jieun Kang_**
 [![Project Status: WIP – Initial development is in progress, but there has not yet been a stable, usable release suitable for the public.](https://www.repostatus.org/badges/latest/wip.svg)](https://www.repostatus.org/#wip)

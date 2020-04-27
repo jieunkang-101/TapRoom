@@ -106,7 +106,7 @@ class App extends React.Component {
     const updatedPintTap = {...selectedTap, pints: leftPints};
     const newMessage = updatedPintTap.pints < 10 ? "Almost Empty": "Enough";
     const updateMsgTap = {...updatedPintTap, message: newMessage};
-    const emptyMessage = updateMsgTap.pints == 0 ? "Out of Stock!": newMessage;
+    const emptyMessage = updateMsgTap.pints === 0 ? "Out of Stock!": newMessage;
     const finalUpdateTap = {...updateMsgTap, message: emptyMessage};
     const newTapMenu = this.state.masterTapMenu
       .filter(tap => tap.id !== id)
@@ -161,7 +161,6 @@ class App extends React.Component {
       showTabMenu: true
     });  
   }
-
 
   setVisibility = () => {
     if (this.state.editingTap) {

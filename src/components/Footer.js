@@ -21,7 +21,7 @@ function Footer(props){
   );  
 }
 
-Footer.prototypes = {
+Footer.propTypes = {
   onClickToHome: PropTypes.func,
   onClickAddNewTap: PropTypes.func
 }

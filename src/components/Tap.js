@@ -2,9 +2,6 @@ import React from 'react';
 import PropTypes from 'prop-types';
 
 function Tap(props) {
-
-  // function LeftPints
-
   return (
     <>
       <div className= "col s12 m6 l4">
@@ -20,9 +17,9 @@ function Tap(props) {
               <li>ABV: <strong>{props.abv}</strong> % ABV</li>
               <li>Left Pints: <strong>{props.pints}</strong></li>
               <li>
-                {props.message == "Enough" && <p className="left-pints-enough">{props.message}</p>}
-                {props.message == "Almost Empty" && <p className="left-pints-almost">{props.message}</p>}
-                {props.message == "Out of Stock!" && <p className="left-pints-empty">{props.message}</p>}
+                {props.message === "Enough" && <p className="left-pints-enough">{props.message}</p>}
+                {props.message === "Almost Empty" && <p className="left-pints-almost">{props.message}</p>}
+                {props.message === "Out of Stock!" && <p className="left-pints-empty">{props.message}</p>}
               </li>
             </ul>
           </div>

@@ -30,8 +30,8 @@ function TapMenu(props) {
   )
 }
 
-TapMenu.prototypes = {
-  tapMenu: PropTypes.arrayOf(PropTypes.object),
+TapMenu.propTypes = {
+  tapMenu: PropTypes.array,
   onTabClick: PropTypes.func,
   onSellPint: PropTypes.func
 }

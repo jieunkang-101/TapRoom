@@ -32,7 +32,7 @@ function TapDetail(props){
   );
 }  
 
-TapDetail.prototypes= {
+TapDetail.propTypes= {
   tab: PropTypes.object,
   onRestockTap: PropTypes.func,
   onEditTap: PropTypes.func,

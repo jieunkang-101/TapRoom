@@ -11,7 +11,11 @@ function Footer(props){
         </div>
         <div className="footer-left">
           <p className="footer-links">
-            <a className="link-1" onClick={() => props.onClickToHome()}>Home</a>
+            <button
+              type="button" 
+              className="link-button link-1" 
+              onClick={() => props.onClickToHome()}>Home
+            </button>
             <a href="mailto:jieunkang101@gmail.com">Contact</a>
           </p>
           <p>Copyright &copy; 2020 Jieun Kang</p>

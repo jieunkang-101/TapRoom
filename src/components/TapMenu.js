@@ -3,8 +3,6 @@ import Tap from './Tap';
 import PropTypes from 'prop-types';
 
 function TapMenu(props) {
-
-
   return (
     <>
       <div className="tapMenu">

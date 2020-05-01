@@ -6,16 +6,14 @@ body {
   height: 120px;
   padding-top: 40px;
   margin: 0;
-  /* margin: 30px;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  position: relative; */
 }
 
 .navbar {
   font-size: 1.2em;
+}
+
+.navbar-btn {
+  padding-right: 20px;
 }
 
 .headerText {
@@ -27,7 +25,6 @@ body {
   float: right;
   display: flex;
   width: 300px;
-  /* border: 3px solid green; */
 }
 
 .button-center {
@@ -54,7 +51,7 @@ body {
 
 .btn:hover {
   border-radius: 30px;
-  border-color: #494949 !important;
+  border-color: #494949;
   }
 
 .tapMenu, .form-card {
@@ -149,12 +146,21 @@ h2 {
   box-sizing: border-box;
   width: 100%;
   bottom: 0px;
-  /* position: fixed; */
   text-align: left;
-  /* font: normal 16px sans-serif; */
   font-weight: bold;
   padding: 25px 30px;
   margin-top: 60px;
+}
+
+.footer p.footer-links button {
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+  display: inline-block;
+  line-height: 1.8;
+  text-decoration: none;
+  color: inherit;
+  transition: ease .25s;
 }
 
 .footer p.footer-links a {
@@ -166,6 +172,30 @@ h2 {
   text-decoration: none;
   color: inherit;
   transition: ease .25s;
+}
+
+.link-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+
+.link-button:hover,
+.link-button:focus {
+text-decoration: none;
+}
+
+.footer .footer-links button:before {
+  content: "·";
+  font-size: 20px;
+  left: 0;
+  color: #fff;
+  display: inline-block;
+  padding-left: 7px;
+  padding-right: 3px;
 }
 
 .footer .footer-links a:before {
@@ -211,3 +241,4 @@ h2 {
 .footer .footer-right a:hover{transform:scale(1.1); -webkit-transform:scale(1.1);}
 
 .footer p.footer-links a:hover{text-decoration:underline;}
+.footer p.footer-links button:hover{text-decoration:underline;}
